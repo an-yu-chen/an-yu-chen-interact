@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Meaning in Motion — InterACT Fellowship</title>
+<meta content="InterACT postdoctoral fellowship research project on how high-tech opportunities gain, lose and reconfigure meaning and value across communities of evaluation." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&amp;family=Merriweather:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#18283a;--muted:#5f6c79;--paper:#e8dfcf;--white:#f8f4eb;
+  --dark:#102a43;--line:#cfc4b1;--accent:#cdbb9b;--accent2:#9eafbd;
+  --max:1180px;--radius:20px;--shadow:0 18px 50px rgba(16,24,32,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6}
+a{color:inherit}
+nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:16px 4vw;background:rgba(232,223,207,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(16,42,67,.14)}
+.brand{font-weight:700;letter-spacing:.08em;text-decoration:none}.brand span{opacity:.45}
+.navlinks{display:flex;gap:20px;font-size:.88rem}.navlinks a{text-decoration:none}.navlinks a:hover{text-decoration:underline}
+.hero{max-width:var(--max);margin:auto;min-height:690px;padding:80px 28px;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#53677a}
+.hero h1{font-family:"IBM Plex Serif",serif;font-size:clamp(3rem,6vw,5.8rem);line-height:.98;margin:16px 0 24px;letter-spacing:-.04em}
+.hero h1 em{font-style:normal;text-decoration:underline;text-decoration-color:#b79b72;text-decoration-thickness:3px;text-underline-offset:7px}
+.lead{font-size:1.2rem;max-width:720px;color:#3e5061}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0}
+.btn{display:inline-block;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid var(--ink)}
+.primary{background:#173a5a;color:#fbf6eb;border-color:#173a5a}.secondary{background:transparent}
+.small{font-size:.82rem;color:var(--muted)}
+.hero-visual{display:grid;place-items:center;min-height:390px}
+.orbit{width:350px;height:350px;border:1px dashed #8799a8;border-radius:50%;position:relative;display:grid;place-items:center}
+.node{position:absolute;padding:10px 13px;background:var(--white);border:1px solid var(--line);border-radius:999px;font-size:.72rem;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.07)}
+.node.center{position:static;border-radius:18px;background:var(--dark);color:#fff;text-align:center;padding:22px;z-index:2}
+.n1{top:8%;left:40%}.n2{right:1%;top:35%}.n3{right:13%;bottom:8%}.n4{left:13%;bottom:8%}.n5{left:0;top:35%}
+.section{padding:92px max(28px,calc((100vw - var(--max))/2));}
+.section.dark{background:var(--dark);color:white}.section.accent{background:#dcd0bc}.section.paper{background:#f5efe4}
+.section-head{max-width:850px;margin-bottom:38px}.section-head h2{font-family:"IBM Plex Serif",serif;font-size:clamp(2.1rem,4vw,3.8rem);line-height:1.05;margin:8px 0 16px;letter-spacing:-.03em}
+.muted{color:var(--muted)}.dark .muted{color:#aeb8c1}
+.grid.two{display:grid;grid-template-columns:1.5fr .8fr;gap:28px}.big{font-size:1.45rem;max-width:720px}
+.question-card,.case,.impact-grid>div,.fit-grid>div,.mentor,.hypothesis{border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:var(--white)}
+.dark .question-card,.dark .impact-grid>div{background:#173650;border-color:#3b566c}
+.question-card span,.hypothesis span{font-size:.72rem;font-weight:700;letter-spacing:.12em}.question-card p{font-size:1.25rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#2c4a62;margin-top:45px}.stats>div{background:var(--dark);padding:25px}.stats b{display:block;font-size:2rem}.stats span{font-size:.8rem;color:#aeb8c1}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.case{box-shadow:var(--shadow)}.case.featured{transform:translateY(-10px)}
+.case-tag{font-size:.7rem;font-weight:700;letter-spacing:.1em;color:#69747d}.case h3{font-size:1.45rem}.case-data{display:grid;grid-template-columns:auto 1fr;gap:5px 12px;margin:22px 0;font-size:.85rem}.case-data strong{font-size:1rem}.case a{font-weight:700}
+.method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.method-step{background:#f8f4eb;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s;box-shadow:0 8px 30px rgba(16,24,32,.04)}
+.method-step:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.method-button{width:100%;border:0;background:transparent;text-align:left;padding:24px;display:grid;grid-template-columns:55px 1fr auto;gap:14px;align-items:center;cursor:pointer;color:var(--ink)}
+.method-number{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--dark);color:white;font-weight:700}
+.method-button h3{margin:0;font-size:1.25rem}.method-button p{margin:3px 0 0;color:var(--muted);font-size:.92rem}
+.chevron{font-size:1.4rem;transition:.2s}.method-step.open .chevron{transform:rotate(45deg)}
+.method-detail{display:none;border-top:1px solid var(--line);padding:0 24px 25px;background:#f3ecdf}
+.method-step.open .method-detail{display:block}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.detail-block{padding:16px;border-radius:14px;background:#e4d9c6}
+.detail-block strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.detail-block p{margin:0;font-size:.9rem}
+.detail-note{margin-top:16px;padding:14px 16px;border-left:3px solid #8b9bab;font-size:.88rem;color:#4e5962}
+.pilot-table{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#f8f4eb}
+.row{display:grid;grid-template-columns:1.1fr 1.5fr 1.3fr;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.row>*{padding:15px 17px}.row.head{font-weight:700;background:#ded4c2}
+.hypothesis{margin-top:20px;background:#f8f4eb}
+.flow{display:flex;align-items:stretch;gap:10px;overflow:auto;padding:10px 0}.flow>div{min-width:185px;background:#f8f4eb;border:1px solid var(--line);border-radius:16px;padding:18px}.flow span{font-size:.72rem;font-weight:700}.flow b{display:block;margin:8px 0}.flow small{color:var(--muted)}.flow i{display:grid;place-items:center;font-size:1.5rem}
+.impact-grid,.fit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.impact-grid b,.fit-grid h3{font-size:1.05rem}.deliverables{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.deliverables span{border:1px solid #3a4650;border-radius:999px;padding:8px 13px;font-size:.8rem}
+.mentor{margin-top:24px}.mentor-links{display:flex;gap:20px;flex-wrap:wrap;font-weight:700}.literature ol{padding-left:22px}.literature li{margin:12px 0}
+footer{padding:35px 4vw;display:flex;justify-content:space-between;gap:30px;background:#0b2034;color:#dfe5e9;font-size:.86rem}footer a{color:white}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero-visual{min-height:300px}.cards,.impact-grid,.fit-grid{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}.detail-grid{grid-template-columns:1fr}.grid.two{grid-template-columns:1fr}}
+@media(max-width:650px){.navlinks{display:none}.hero{padding-top:55px}.cards,.method-grid,.impact-grid,.fit-grid{grid-template-columns:1fr}.case.featured{transform:none}.stats{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}.row.head{display:none}.orbit{width:285px;height:285px}.flow>i{display:none}footer{flex-direction:column}}
+
+.trajectory-strip,.concept-flow{display:flex;align-items:stretch;gap:9px;overflow:auto;padding:8px 0 18px}
+.trajectory-strip>div,.concept-flow>div{min-width:155px;background:#f8f4eb;border:1px solid var(--line);border-radius:16px;padding:16px}
+.trajectory-strip span,.concept-flow span{font-size:.7rem;font-weight:700;color:#586b7d}
+.trajectory-strip b,.concept-flow b{display:block;margin:7px 0 3px}.trajectory-strip small,.concept-flow small{color:var(--muted);font-size:.78rem}
+.trajectory-strip i,.concept-flow i{display:grid;place-items:center;font-size:1.35rem;min-width:18px}
+.method-intro{max-width:900px;background:#e2d8c7;border-left:4px solid #8b7a5e;padding:17px 19px;border-radius:0 14px 14px 0;margin:8px 0 25px}
+.concept-card{background:#f8f4eb;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:var(--shadow)}
+.three-dimensions{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.three-dimensions>div{background:#e4d9c6;border-radius:15px;padding:18px}
+.three-dimensions b{font-size:.72rem;letter-spacing:.1em}.three-dimensions p{margin:5px 0 0}
+
+.references{max-width:940px}.references p{padding:0 0 18px;margin:0 0 18px;border-bottom:1px solid var(--line);padding-left:28px;text-indent:-28px}.references a{font-weight:700}.reference-note{max-width:900px;background:#e2d8c7;padding:16px 18px;border-radius:14px;font-size:.88rem}
+
+.wp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.wp-card{background:#f8f4eb;border:1px solid var(--line);border-radius:20px;padding:25px;box-shadow:0 8px 30px rgba(16,24,32,.04)}
+.wp-card.featured{background:#18232c;color:#fff;border-color:#33404b}
+.wp-kicker{font-size:.7rem;font-weight:700;letter-spacing:.12em;color:#586b7d}
+.wp-card.featured .wp-kicker{color:#cbbd9f}
+.wp-card h3{font-family:"IBM Plex Serif",serif;font-size:1.65rem;line-height:1.1;margin:8px 0 12px}
+.wp-card p{margin:8px 0}
+.wp-card ul{padding-left:20px;margin:15px 0 0}.wp-card li{margin:7px 0}
+.wp-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.wp-meta div{background:#e4d9c6;border-radius:13px;padding:13px}
+.wp-card.featured .wp-meta div{background:#22435d}
+.wp-meta strong{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase}
+.wp-meta span{display:block;font-size:.84rem;margin-top:3px}
+.wp-logic{margin-top:22px;padding:20px;border:1px solid var(--line);border-radius:18px;background:#f5efe4}
+.wp-logic strong{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.architecture{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.architecture>div{background:#f8f4eb;border:1px solid var(--line);border-radius:16px;padding:18px}
+.architecture b{font-size:.76rem;letter-spacing:.08em}.architecture p{font-size:.86rem;margin:7px 0 0}
+.wp-output{margin-top:20px;padding:18px 20px;border-left:4px solid #8b7a5e;background:#e2d8c7;border-radius:0 14px 14px 0}
+@media(max-width:900px){.wp-grid{grid-template-columns:1fr}.architecture{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.architecture{grid-template-columns:1fr}.wp-meta{grid-template-columns:1fr}}
+
+
+/* Contrast safeguards for the added Work Packages / Data Spine sections. */
+.section.dark .eyebrow{color:#d7e0e6}
+.section.dark .section-head h2{color:#ffffff}
+.section.dark .wp-card:not(.featured){color:#17344f}
+.section.dark .wp-card:not(.featured) h3{color:#17344f}
+.section.dark .wp-card:not(.featured) p,.section.dark .wp-card:not(.featured) li{color:#30485d}
+.section.dark .wp-card:not(.featured) .wp-kicker{color:#637587}
+.section.dark .wp-card:not(.featured) .wp-meta strong{color:#17344f}
+.section.dark .wp-card:not(.featured) .wp-meta span{color:#4e6071}
+.section.dark .wp-logic{color:#17344f}
+.section.dark .wp-logic strong{color:#17344f}
+.section.dark .wp-logic span{color:#637587}
+#data-architecture .eyebrow{color:#50677b}
+#data-architecture .section-head h2{color:#17344f}
+#data-architecture .muted{color:#4b6072}
+#data-architecture .architecture>div{color:#17344f}
+#data-architecture .architecture p{color:#3d5265}
+#data-architecture .wp-output{color:#24445f}
+#data-architecture .concept-card{color:#17344f}
+#data-architecture .concept-flow small{color:#50677b}
+/* Keep contrast intact when the viewport collapses the grids. */
+@media(max-width:650px){.section.dark .wp-card:not(.featured){color:#17344f}}
+
+  .research-model { margin-top:24px; padding:24px; border:1px solid #36556d; border-radius:18px; background:#173650; box-shadow:0 14px 35px rgba(0,0,0,.12); }
+  .research-model .model-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:18px; }
+  .research-model .model-cell { padding:17px; border-radius:13px; background:#f4ecdf; border:1px solid #d1c4ae; color:#202a33; min-height:150px; }
+  .research-model .model-cell b { display:block; margin-bottom:8px; color:#806c4d; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; }
+  .research-model .model-cell small { display:block; line-height:1.55; color:#40566a; opacity:1; }
+  .research-model .model-cell small strong { color:#202a33; }
+  .industry-focus { margin-top:18px; padding:18px 20px; border-left:3px solid #c3a56f; background:#244660; color:#f5efe4; border-radius:0 13px 13px 0; }
+  .industry-focus strong { color:#fff8ea; }
+  .research-model .hypothesis { background:#f4ecdf; border-color:#d8d2c7; color:#202a33; }
+  .research-model .hypothesis span { color:#806c4d; }
+  @media (max-width: 900px) { .research-model .model-grid { grid-template-columns:1fr 1fr; } }
+  @media (max-width: 620px) { .research-model .model-grid { grid-template-columns:1fr; } }
+
+
+/* Editorial typography + accessible contrast refinement */
+body{font-size:16px;letter-spacing:.002em}
+.hero h1,.section-head h2,.wp-card h3{font-weight:600}
+.section-head h2{letter-spacing:-.018em}
+.eyebrow,.wp-kicker,.case-tag{letter-spacing:.09em}
+.method-button h3,.case h3{font-weight:600}
+::selection{background:#cbbd9f;color:#17344f;color:#202a33}
+
+
+/* White + yellow editorial theme; black and blue typography */
+:root{
+  --ink:#111827;
+  --muted:#374151;
+  --paper:#ffffff;
+  --white:#ffffff;
+  --dark:#fff4b8;
+  --line:#e6d88a;
+  --accent:#f5d547;
+  --accent2:#1d4ed8;
+  --shadow:0 12px 32px rgba(17,24,39,.07);
+}
+body{background:#fff;color:#111827;font-family:"Source Sans 3",Arial,sans-serif;font-size:17px;line-height:1.68;letter-spacing:0}
+.hero h1,.section-head h2,.wp-card h3{font-family:"Merriweather",Georgia,serif;color:#111827;font-weight:700}
+.hero h1{font-size:clamp(2.6rem,5.2vw,5rem);line-height:1.08}
+.section-head h2{font-size:clamp(1.9rem,3.5vw,3.25rem);line-height:1.16}
+.brand,.navlinks a,.section a,.references a{color:#1746a2}
+nav{background:rgba(255,255,255,.97);border-bottom:2px solid #f5d547}
+.eyebrow,.wp-kicker,.case-tag,.trajectory-strip span,.concept-flow span{color:#1746a2}
+.hero{background:#fff;}
+.hero h1 em{color:#1746a2;text-decoration-color:#f0c928}
+.lead{color:#26364d;font-size:1.18rem}
+.btn{border-color:#1746a2;color:#1746a2}
+.primary{background:#1746a2;color:#fff;border-color:#1746a2}
+.secondary{background:#fff;border:1px solid #1746a2}
+.orbit{border-color:#d9b91e}
+.node{background:#fff;border-color:#e6d88a;color:#111827}
+.node.center{background:#f5d547;color:#111827;border:1px solid #d6b91c}
+.section{background:#fff;color:#111827}
+.section.dark{background:#fff9d9;color:#111827}
+.section.accent{background:#fff0a6;color:#111827}
+.section.paper{background:#fff;color:#111827}
+.section.dark .section-head h2,.section.dark .eyebrow{color:#111827}
+.section.dark .muted,.muted{color:#374151}
+.question-card,.case,.impact-grid>div,.fit-grid>div,.mentor,.hypothesis,
+.method-step,.pilot-table,.concept-card,.wp-card,.architecture>div,
+.trajectory-strip>div,.concept-flow>div,.research-model .model-cell{background:#fff;border-color:#e6d88a;color:#111827}
+.dark .question-card,.dark .impact-grid>div{background:#fff;border-color:#e6d88a;color:#111827}
+.question-card span,.hypothesis span,.research-model .model-cell b{color:#1746a2}
+.stats{background:#f5d547}
+.stats>div{background:#fff9d9;color:#111827}
+.stats span{color:#374151}
+.method-button{color:#111827}
+.method-number{background:#1746a2;color:#fff}
+.method-detail{background:#fff9d9;border-top-color:#e6d88a}
+.detail-block,.three-dimensions>div,.wp-meta div{background:#fff4b8;color:#111827}
+.detail-note{color:#26364d;border-left-color:#1746a2}
+.row.head{background:#fff0a6;color:#111827}
+.row{border-color:#e6d88a}
+.flow>div,.wp-logic{background:#fff9d9;color:#111827;border-color:#e6d88a}
+.deliverables span{border-color:#1746a2;color:#1746a2}
+.wp-card.featured{background:#fff4b8;color:#111827;border-color:#e6d88a}
+.wp-card.featured .wp-kicker{color:#1746a2}
+.wp-card.featured .wp-meta div{background:#fff;color:#111827}
+.wp-logic strong,.wp-output strong{color:#1746a2}
+.wp-output,.method-intro,.reference-note{background:#fff4b8;color:#111827;border-left-color:#1746a2}
+.research-model{background:#fff4b8;border-color:#e6d88a;box-shadow:none}
+.research-model .model-cell b{color:#1746a2}
+.research-model .model-cell small{color:#26364d}
+.research-model .model-cell small strong{color:#111827}
+.industry-focus{background:#fff0a6;color:#111827;border-left-color:#1746a2}
+.industry-focus strong{color:#111827}
+.research-model .hypothesis{background:#fff;color:#111827;border-color:#e6d88a}
+.research-model .hypothesis span{color:#1746a2}
+footer{background:#fff4b8;color:#111827;border-top:2px solid #f5d547}
+footer a{color:#1746a2}
+::selection{background:#f5d547;color:#111827}
+@media(max-width:650px){body{font-size:16px}}
+
+
+/* APA 7 reference-list presentation */
+.references p { margin: 0 0 0.78rem; padding-left: 1.45rem; text-indent: -1.45rem; overflow-wrap: anywhere; }
+.references a { overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<nav>
+<a class="brand" href="#top">MEANING<span>IN</span>MOTION</a>
+<div class="navlinks">
+<a href="#why">Why</a><a href="#cases">Cases</a><a href="#method">Method</a><a href="#workpackages">Work packages</a><a href="#data-architecture">Data spine</a>
+<a href="#pilot">Pilot</a><a href="#impact">Impact</a><a href="#fit">InterACT</a>
+</div>
+</nav>
+<header class="hero" id="top">
+<div class="hero-copy">
+<p class="eyebrow">INTERACT · VUB · 2027–2030</p>
+<h1>How does a high-tech opportunity <em>change meaning</em> as it moves between communities of evaluation?</h1>
+<p class="lead">A longitudinal study of how researchers, technology-transfer professionals, entrepreneurs, investors and industry partners interpret high-tech opportunities, how evaluation changes their perceived value and uncertainty, and how this can inform responsible knowledge valorisation and evidence-informed policy.</p>
+<div class="buttons">
+<a class="btn primary" href="#method">Explore the research</a>
+<a class="btn secondary" href="#cases">Explore motivating cases</a>
+</div>
+<p class="small">Postdoctoral research proposal · for Vrije Universiteit Brussel · Dr An Yu Chen</p>
+</div>
+<div class="hero-visual">
+<div class="orbit">
+<div class="node center">TECH<br/>OPPORTUNITY</div>
+<div class="node n1">LAB</div><div class="node n2">TTO</div>
+<div class="node n3">INVESTOR</div><div class="node n4">INDUSTRY</div>
+<div class="node n5">POLICY</div>
+</div>
+</div>
+</header>
+<section class="section dark" id="why">
+<div class="section-head">
+<p class="eyebrow">01 · THE PROBLEM</p>
+<h2>A technology is evaluated differently depending on who is looking.</h2>
+</div>
+<div class="grid two">
+<div>
+<p class="big">A scientific result can be a breakthrough, a patent, a business opportunity, a strategic capability or a societal solution — without the underlying technology changing. Research on technology transfer and academic entrepreneurship likewise shows that university knowledge moves through multiple organisational, institutional and commercial settings, not through a single linear pathway (Wright et al., 2004; Hayter et al., 2018; Abreu &amp; Grinevich, 2024).</p>
+<p>The missing piece is the <strong>trajectory of meaning</strong>: how an opportunity is framed, questioned, translated and revised as it crosses institutional boundaries. This emphasis connects the project to research on framing as a process of selecting and emphasising aspects of a situation (Benford &amp; Snow, 2000), entrepreneurial framing in investor evaluation (Pan et al., 2020), and the interpretive work performed by technology-transfer professionals (Sapir, 2021). Research on innovation intermediation shows that intermediaries search, broker, translate, validate and connect actors whose knowledge and goals differ (Howells, 2006; Howells &amp; Thomas, 2022). The project treats these encounters as part of knowledge valorisation itself, consistent with European guidance that valorisation extends beyond formal intellectual-property management to the use of research results and other intellectual assets (European Commission, 2023). It asks how universities, industry partners and public innovation actors can assess opportunities when evidence is incomplete, and how they can distinguish evidence-responsive adaptation from changes in presentation that obscure unresolved uncertainty. This connects the empirical research to institutional practice and evidence-informed policy without assuming that commercialisation is the only valuable outcome (Siegel et al., 2003).</p>
+</div>
+<div class="question-card">
+<span>CORE QUESTION</span>
+<p>When does adapting an opportunity account help stakeholders evaluate it responsibly, and when can it hide unresolved technical uncertainty? This builds on evidence that framing can shape resource acquisition while evaluation remains sensitive to audience and context (Pan et al., 2020; van Werven et al., 2019).</p>
+</div>
+</div>
+<div class="stats">
+<div><b>2,883</b><span>US IT ventures in Pan et al. (2020)</span></div>
+<div><b>5,849</b><span>investment events in that study</span></div>
+<div><b>14</b><span>investment pitches analysed by Clarke &amp; Llewellyn (2026)</span></div>
+<div><b>60+</b><span>VUB spin-offs created since the 1990s</span></div>
+</div>
+</section>
+<section class="section" id="cases">
+<div class="section-head">
+<p class="eyebrow">02 · REAL-WORLD CASES</p>
+<h2>VUB already contains the phenomenon this project wants to explain.</h2>
+<p class="muted">These publicly described VUB-related cases motivate the research questions.</p>
+</div>
+<div class="cards">
+<article class="case">
+<div class="case-tag">PHOTONICS to DIGITAL INDUSTRY</div>
+<h3>Optrima to SoftKinetic to Sony</h3>
+<p>A VUB-originated time-of-flight 3D sensing technology moved from doctoral research through a spin-off trajectory to Sony Depthsensing. VUB describes the case as a story in which an initially difficult-to-place idea eventually found resonance.</p>
+<div class="case-data"><strong>2002</strong><span>research concept described at VUB</span><strong>2010</strong><span>SoftKinetic merger</span><strong>2015</strong><span>Sony acquisition</span></div>
+<a href="https://www.vub.be/en/news/from-optrima-softkinetic-sony" rel="noopener" target="_blank">VUB case story </a>
+</article>
+<article class="case featured">
+<div class="case-tag">BIOMATERIALS to HEALTHCARE to SPACE</div>
+<h3>BIO INX</h3>
+<p>A VUB–UGent spin-off commercialising bio-inks shows how one materials platform can acquire value through different applications, partnerships and validation contexts.</p>
+<div class="case-data"><strong>€700k</strong><span>first capital raise in 2022</span><strong>28</strong><span>nerve-repair implants printed on the ISS in 2026</span><strong>2026</strong><span>DEGRES INX® used in orbital manufacturing</span></div>
+<a href="https://techtransfer.research.vub.be/bio-inx" rel="noopener" target="_blank">VUB TechTransfer </a>
+</article>
+<article class="case">
+<div class="case-tag">SEMANTIC TECHNOLOGY to DATA GOVERNANCE</div>
+<h3>Collibra</h3>
+<p>VUB's data-governance spin-off illustrates how academic research can be translated into an enterprise category and subsequently evaluated through financing, customers and market adoption.</p>
+<div class="case-data"><strong>$50m</strong><span>Series C reported by VUB in 2016</span><strong>&gt;$75m</strong><span>venture funding reported at that time</span><strong>2008</strong><span>company founded</span></div>
+<a href="https://techtransfer.research.vub.be/vub-spin-offs-and-testimonials" rel="noopener" target="_blank">VUB TechTransfer </a>
+</article>
+</div>
+</section>
+<section class="section paper" id="method">
+<div class="section-head">
+<p class="eyebrow">03 · RESEARCH DESIGN</p>
+<h2>Follow the opportunity — not just the technology.</h2>
+<p class="muted">The unit of analysis is a <strong>technology-opportunity trajectory</strong>: one identifiable high-tech opportunity followed from research origin through successive evaluation, transfer and commercialisation encounters. This longitudinal orientation responds to literature showing that university technology transfer is embedded in evolving ecosystems, organisational roles and entrepreneurial processes (Wright et al., 2004; Hayter et al., 2018; Abreu &amp; Grinevich, 2024; Abid et al., 2025). Research also suggests that technology attributes, such as prototype maturity, clarity of market segments and regulatory hurdles, inform entrepreneurs’ licensing decisions (Brown et al., 2022). It also avoids treating transfer as a single patenting or licensing event: commercialisation can involve iterative proof-of-concept work, stakeholder integration and the gradual development of absorptive capacity on the receiving side (McAdam et al., 2009).</p>
+</div>
+<div class="trajectory-strip">
+<div><span>01</span><b>Technology origin</b><small>Research, patent, proof-of-concept</small></div>
+<i>to</i>
+<div><span>02</span><b>Evaluation encounter</b><small>TTO, grant, investor, industry, pilot</small></div>
+<i>to</i>
+<div><span>03</span><b>Interpretation</b><small>Questions, objections, evidence requirements</small></div>
+<i>to</i>
+<div><span>04</span><b>Frame adaptation</b><small>Meaning, value, uncertainty</small></div>
+<i>to</i>
+<div><span>05</span><b>Response</b><small>Funding, relationship, licensing, pilot</small></div>
+<i>to</i>
+<div><span>06</span><b>New evidence</b><small>Further evaluation and possible reframing</small></div>
+</div>
+<p class="method-intro"><strong>How the evidence is built:</strong> first identify and reconstruct trajectories; then locate evaluation events; then analyse the language and interaction around those events; finally connect changes in opportunity accounts with observable transfer outcomes and experimentally test selected framing effects.</p>
+<div class="method-grid">
+<article class="method-step">
+<button aria-expanded="false" class="method-button" type="button">
+<span class="method-number">01</span><span><h3>Map</h3><p>Build the longitudinal technology-opportunity trajectory.</p></span><span class="chevron">+</span>
+</button>
+<div class="method-detail">
+<div class="detail-grid">
+<div class="detail-block"><strong>Data sources</strong><p>EPO Deep Tech Finder / PATSTAT, OpenAlex, CORDIS, patents, publications, grants, TTO materials, company records and investment announcements. PATSTAT provides bibliographic, legal-event and procedural patent data; CORDIS provides EU-funded project, participant, deliverable and publication records; and OpenAlex links scholarly works to authors, institutions, funders and topics (European Patent Office, 2026; European Commission, 2026; OpenAlex, 2026).</p></div>
+<div class="detail-block"><strong>What happens</strong><p>Identify the technology, related organisations and dated events, then connect research, intellectual property, funding, company, investment, collaboration, licensing and pilot records.</p></div>
+<div class="detail-block"><strong>Output</strong><p>A dated trajectory for each case showing the technology, actors, evidence sources and major transfer/evaluation milestones.</p></div>
+</div>
+<p class="detail-note"><strong>Sampling plan:</strong> develop a candidate pool across AI/software and intelligent systems; biotechnology, health and biomedical technologies; photonics and advanced materials; and energy and resource-efficient technologies. The final core sample will prioritise two or three domains based on traceable evaluation records, partner relevance and feasibility, while retaining the broader pool for comparison where data permit. This avoids promising equal coverage across domains before access is confirmed (Haessler et al., 2023; OECD, 2025). The proposal defines one technology opportunity followed from research origin through subsequent evaluation, transfer and commercialisation events as the unit of analysis.</p>
+<p class="detail-note"><strong>Case identification and selection:</strong> The initial opportunity universe will be constructed using explicit inclusion criteria and a documented entity-resolution protocol linking publications, patent families, projects, organisations and commercialisation events. Ambiguous matches will be flagged instead of being automatically merged, with matching decisions, confidence levels and source provenance retained for audit. From this universe, trajectories will be selected to support comparison across technology families, application contexts and transfer stages, including contrasting cases in which opportunities progress, stall, are redirected or are abandoned. This combines systematic case construction with the contextual depth needed to explain heterogeneous technology-transfer processes (Cunningham et al., 2017; Beach, 2020).</p>
+</div>
+</article>
+<article class="method-step">
+<button aria-expanded="false" class="method-button" type="button">
+<span class="method-number">02</span><span><h3>Extract</h3><p>Capture what is actually said at identifiable evaluation moments.</p></span><span class="chevron">+</span>
+</button>
+<div class="method-detail">
+<div class="detail-grid">
+<div class="detail-block"><strong>What is collected</strong><p>Time-stamped text from patents, publications, grants, TTO materials, venture/company pages, investment announcements and other accessible communications.</p></div>
+<div class="detail-block"><strong>Evaluation events</strong><p>TTO assessments, grant decisions, investor pitches, industry negotiations, pilots, licensing decisions and other moments where the opportunity is evaluated. TTOs can act as brokers across academic and industrial boundaries while also managing institutional and ownership constraints (Sapir, 2021; Chen et al., 2025).</p></div>
+<div class="detail-block"><strong>What is coded</strong><p>For each event: <strong>problem</strong>, <strong>value</strong>, <strong>evidence</strong>, <strong>uncertainty</strong> and the <strong>requested response</strong>. This keeps evaluation tied to observable interaction, not as a purely rhetorical property of framing (van Werven et al., 2019; Clarke &amp; Llewellyn, 2026).</p></div>
+</div>
+<p class="detail-note"><strong>Key principle:</strong> the project uses contemporaneous, time-stamped material wherever available so that changes in an opportunity account can be observed, not reconstructed only from hindsight.</p>
+</div>
+</article>
+<article class="method-step">
+<button aria-expanded="false" class="method-button" type="button">
+<span class="method-number">03</span><span><h3>Compare</h3><p>Identify patterns in how meaning, value and uncertainty are represented.</p></span><span class="chevron">+</span>
+</button>
+<div class="method-detail">
+<div class="detail-grid">
+<div class="detail-block"><strong>Three dimensions</strong><p><strong>Meaning:</strong> what the technology is understood to be. <strong>Value:</strong> why it is worth supporting or adopting. <strong>Uncertainty:</strong> what remains unknown or unvalidated.</p></div>
+<div class="detail-block"><strong>Computational analysis</strong><p>Transformer-based text representations and comparison of language patterns, complemented by transparent dictionary-based measures. The design is informed by research demonstrating how linguistic and narrative features can be analysed systematically in entrepreneurial settings (Pan et al., 2020; Oo et al., 2023).</p></div>
+<div class="detail-block"><strong>Qualitative analysis</strong><p>Qualitative coding and process tracing are used to interpret why language changes and to examine the context behind computational patterns.</p></div>
+</div>
+<p class="detail-note"><strong>Methodological logic:</strong> computational analysis identifies recurring or changing patterns; transparent coding and qualitative process tracing make those patterns interpretable and tied to specific evaluation episodes.</p>
+</div>
+</article>
+<article class="method-step">
+<button aria-expanded="false" class="method-button" type="button">
+<span class="method-number">04</span><span><h3>Trace</h3><p>Reconstruct how questions, objections and evidence requirements change the opportunity account.</p></span><span class="chevron">+</span>
+</button>
+<div class="method-detail">
+<div class="detail-grid">
+<div class="detail-block"><strong>Interview sample</strong><p>Approximately <strong>45–60 interviews</strong> with researchers, entrepreneurs, TTO professionals, investors and industry partners. This multi-actor design reflects evidence that technology-transfer work involves brokerage, legitimacy management and competing organisational expectations across boundaries (O’Kane et al., 2015; Sapir, 2021).</p></div>
+<div class="detail-block"><strong>Episode reconstruction</strong><p>Link interview accounts and accessible interaction records to specific evaluation events identified in the trajectory.</p></div>
+<div class="detail-block"><strong>Analytical question</strong><p>Who challenged, accepted, questioned or revised an opportunity account — and what evidence or response followed? Recent research on investment pitches similarly treats evaluation as an interaction in which investors challenge and redirect entrepreneurial narratives, instead of simply receiving a fixed story (Clarke &amp; Llewellyn, 2026).</p></div>
+</div>
+<p class="detail-note"><strong>Contribution:</strong> this step moves beyond observing that language changed. It reconstructs the interactional process through which an opportunity was interpreted and potentially reconfigured.</p>
+</div>
+</article>
+<article class="method-step">
+<button aria-expanded="false" class="method-button" type="button">
+<span class="method-number">05</span><span><h3>Test</h3><p>Examine whether alternative representations of the same technology change stakeholder evaluation.</p></span><span class="chevron">+</span>
+</button>
+<div class="method-detail">
+<div class="detail-grid">
+<div class="detail-block"><strong>Design</strong><p>A controlled vignette experiment presents the same underlying technical opportunity with systematically varied representations. This follows evidence that alternative linguistic and narrative frames can influence how entrepreneurial opportunities are interpreted and resourced (Pan et al., 2020; Purtell et al., 2024).</p></div>
+<div class="detail-block"><strong>Stakeholder groups</strong><p>The pilot will provisionally target <strong>150–200 participants across 2–3 stakeholder groups</strong>, subject to a priori power analysis and recruitment feasibility.</p></div>
+<div class="detail-block"><strong>Measures</strong><p>Perceived value, legitimacy, risk, uncertainty and willingness to engage.</p></div>
+</div>
+<p class="detail-note"><strong>Purpose:</strong> the experiment complements the longitudinal cases by testing whether selected differences in representation are associated with different evaluations while the underlying technical opportunity is held constant.</p>
+</div>
+</article>
+<article class="method-step">
+<button aria-expanded="false" class="method-button" type="button">
+<span class="method-number">06</span><span><h3>Link</h3><p>Relate meaning and value reconfiguration to subsequent transfer trajectories.</p></span><span class="chevron">+</span>
+</button>
+<div class="method-detail">
+<div class="detail-grid">
+<div class="detail-block"><strong>Observable outcomes</strong><p>Funding, collaboration, licensing, pilots, spin-off development and abandonment, alongside patents, company and investment events where relevant.</p></div>
+<div class="detail-block"><strong>Temporal linkage</strong><p>Align changes in opportunity accounts and evaluation episodes with dated subsequent resource, relationship and transfer events.</p></div>
+<div class="detail-block"><strong>Interpretation</strong><p>Assess how patterns of reconfiguration are associated with subsequent trajectories without assuming that framing alone causes those outcomes.</p></div>
+</div>
+<p class="detail-note"><strong>Core question:</strong> under what conditions does adaptation improve audience relevance while preserving decision-relevant technological uncertainty?</p>
+</div>
+</article>
+</div>
+</section>
+<section class="section dark" id="workpackages">
+<div class="section-head">
+<p class="eyebrow">04 · WORK PACKAGES</p>
+<h2>One evidence architecture, six connected work packages.</h2>
+<p class="muted">The work packages operationalise the existing research: WP1 builds the opportunity universe and common data spine; WP2 reconstructs trajectories; WP3 explains evaluation interactions; WP4 measures patterns across the corpus; WP5 tests selected framing effects experimentally; and WP6 integrates the evidence into a longitudinal diagnostic.</p>
+</div>
+<div class="wp-grid">
+<article class="wp-card">
+<div class="wp-kicker">WP1 · DATA FOUNDATION</div>
+<h3>Build the opportunity universe and data spine</h3>
+<p><strong>Core question:</strong> What constitutes a traceable high-tech opportunity, and which observable records allow it to be followed across institutional boundaries?</p>
+<p>Create the reproducible population from which trajectories are sampled and establish a common identifier system linking research, intellectual property, organisations, funding, firms and investment events.</p>
+<p><strong>Data integration and quality assurance.</strong> Record linkage will combine stable identifiers where available with documented matching rules for organisation names, inventor and author affiliations, patent families, project identifiers and company records. Each link will retain its source, matching method, confidence level and any manual review decision. The project will distinguish missing information from confirmed absence of an event and will maintain versioned records of extraction, cleaning, classification and coding. These procedures will make the opportunity register reproducible and allow uncertain links to be revisited as additional evidence becomes available.</p>
+<ul>
+<li>Use EPO PATSTAT for patent families, applicants, inventors, classifications and legal/procedural events.</li>
+<li>Use the EPO Deep Tech Finder as a discovery and cross-check layer, while retaining project-level entity resolution and provenance.</li>
+<li>Use CORDIS for EU-funded projects, participating organisations, collaborations and project results.</li>
+<li>Use OpenAlex and institutional repositories for publication metadata, authorship, affiliations, citations and topic representations.</li>
+<li>Classify each candidate by a primary technology family and retain secondary technology tags to capture convergence.</li>
+<li>Separately classify application/industry context so that technology and market setting are not conflated.</li>
+</ul>
+<div class="wp-meta">
+<div><strong>Output</strong><span>Master opportunity register with persistent IDs, provenance fields, confidence scores, technology-family tags, industry/application tags and dated event spine.</span></div>
+<div><strong>Sampling</strong><span>Broad VUB/Belgian-linked candidate universe to approximately 30–40 trajectories, stratified across four technology families and three priority industry/application contexts.</span></div>
+</div>
+<div class="industry-focus"><strong>Priority industry/application focus:</strong> healthcare &amp; medtech; digital/enterprise technologies; and advanced industrial/manufacturing systems, including energy/resource-efficient applications where they enter these industrial settings. The candidate pool spans AI/software/intelligent systems; biotechnology/health/biomedical technologies; photonics/advanced materials; and energy/resource-efficient technologies, with final emphasis determined by data access and partner relevance. The design follows the technology-focused commercialisation literature while treating industry context as a boundary condition and does not equate technology with industry (Haessler et al., 2023; Hoppmann et al., 2020; Bojovic, 2022).</div>
+</article>
+<article class="wp-card featured">
+<div class="wp-kicker">WP2 · LONGITUDINAL RECONSTRUCTION</div>
+<h3>Reconstruct technology-opportunity trajectories</h3>
+<p><strong>Core question:</strong> How does the same opportunity acquire different meanings, value claims and uncertainty profiles as it travels through research, TTO, investor and industry settings, and does this reconfiguration vary by technology family or application context?</p>
+<p>Turn heterogeneous records into event-level histories showing when an opportunity moved between communities of evaluation, what each community asked for, and what changed afterwards.</p>
+<ul>
+<li>Collect publications, patents, grant applications/results, TTO materials, company descriptions, accessible pitch/investor materials, licensing or partnership announcements and pilot descriptions.</li>
+<li>Record claim, audience, evidence, uncertainty, requested action and subsequent response for each item, with separate fields for technology family and application/industry context.</li>
+<li>Keep publication date and event date separate to avoid retrospective accounts being treated as contemporaneous evidence.</li>
+<li>Assign source reliability and access status.</li>
+</ul>
+<div class="wp-meta">
+<div><strong>Output</strong><span>A justified core set of validated trajectories and an event-level corpus; the final sample size will be set after feasibility checks.</span></div>
+<div><strong>Feeds</strong><span>WP3 mechanism analysis and WP4 corpus-wide measurement.</span></div>
+</div>
+</article>
+<article class="wp-card">
+<div class="wp-kicker">WP3 · MECHANISMS</div>
+<h3>Explain meaning-making at evaluation boundaries</h3>
+<p><strong>Core question:</strong> Who changes an opportunity account, why does the change occur, and which questions or evidence requirements trigger the revision?</p>
+<p>Use interviews and close qualitative reconstruction to explain the interactional mechanisms behind observed changes. The analysis will also examine the documents, prototypes, evidence summaries and other boundary objects through which actors make an opportunity sufficiently understandable to evaluate, while recognising that shared artefacts do not automatically create shared interpretations (Caccamo et al., 2023).</p>
+<p><strong>Mechanism-focused analysis.</strong> Each selected episode will be reconstructed by comparing contemporaneous documents, interview accounts and observable subsequent responses. The analysis will trace the sequence from an initial opportunity claim, through a stakeholder question or objection, to any evidence request, revision of the opportunity account and subsequent evaluation response. Rival explanations—including changes in technical maturity, available resources, organisational priorities or external market conditions—will be considered alongside framing-related explanations. This process-tracing approach will help distinguish plausible mechanisms from simple temporal association (Beach, 2020).</p>
+<ul>
+<li>Target approximately 35–50 interviews across researchers, entrepreneurs, TTO professionals, investors and industry partners, adjusting the final number to trajectory coverage and information power.</li>
+<li>Use event-specific prompts anchored to identifiable evaluation episodes.</li>
+<li>Connect participant-provided documents to trajectory records through study-specific event IDs.</li>
+<li>Compare successful, delayed, redirected and abandoned trajectories across technology families and the priority industry/application contexts.</li>
+</ul>
+<div class="wp-meta">
+<div><strong>Output</strong><span>Mechanism-focused case reconstructions.</span></div>
+<div><strong>Analytical dimensions</strong><span>Meaning · value · uncertainty · actor · audience · evidence request · response · outcome.</span></div>
+</div>
+</article>
+<article class="wp-card">
+<div class="wp-kicker">WP4 · COMPUTATIONAL COMPARISON</div>
+<h3>Measure patterns of framing, value and uncertainty at scale</h3>
+<p><strong>Core question:</strong> Which linguistic and evidential patterns distinguish representations of the same opportunity across evaluation communities, technology families and application/industry contexts?</p>
+<p>Move from close case reconstruction to systematic comparison across the corpus, testing whether opportunity accounts change predictably across audiences and stages of transfer.</p>
+<p><strong>Candidate measures.</strong> The possible features the study plans to measure include: (1) problem-framing indicators, such as the stated user need and application specificity; (2) value-claim categories, including technical, commercial, societal and environmental benefits; (3) evidence specificity, such as quantified results, benchmark comparisons, prototype tests and validation status; (4) uncertainty markers, including explicit limitations, hedging, unresolved questions and stated validation needs; (5) novelty and familiarity cues; and (6) requested next actions, such as further testing, funding, partnership, licensing or piloting. Changes between successive documents can be measured through coded category shifts and semantic-distance scores, with examples checked in context. Where multiple researchers code documents, agreement will be assessed on an overlapping subset and disagreements used to refine the codebook. Automated measures will be evaluated against human-coded examples and close readings, with sensitivity checks across alternative measures and document subsets. Text analysis will support systematic comparison across the corpus while retaining contextual interpretation (Grimmer &amp; Stewart, 2013; O’Connor &amp; Joffe, 2020). Structural topic modelling may be used exploratorily to examine how topic prevalence varies with document-level metadata (Roberts et al., 2019).</p>
+<ul>
+<li>Combine transformer-based text embeddings with transparent dictionary and supervised coding measures.</li>
+<li>Compare documents within trajectories over time and across the three priority industry/application contexts, with comparisons also made within trajectories over time.</li>
+<li>Link language shifts to boundary crossings, evidence requests, investment events, partnerships, pilots and licensing.</li>
+<li>Run sensitivity checks across document type, technology field, trajectory length, missingness and alternative definitions of frame adaptation.</li>
+</ul>
+<div class="wp-meta">
+<div><strong>Output</strong><span>Transparent computational measurement framework with reproducible preprocessing and robustness checks.</span></div>
+<div><strong>Guardrail</strong><span>Computational similarity identifies patterns; it does not by itself establish mechanism or causality.</span></div>
+</div>
+</article>
+<article class="wp-card">
+<div class="wp-kicker">WP5 · EXPERIMENT</div>
+<h3>Test framing effects with controlled stakeholder experiments</h3>
+<p><strong>Core question:</strong> When the underlying technical opportunity is held constant, does opportunity framing alter stakeholder evaluation, and does the effect depend on the technology family or application/industry context?</p>
+<p>The principal independent variable is <strong>opportunity framing</strong>: how the same technical opportunity is represented in terms of problem, value, evidence, uncertainty, novelty/familiarity and application. The primary dependent variables are <strong>stakeholder evaluation</strong>: perceived value, legitimacy, technical risk, uncertainty, evidence sufficiency and willingness to engage. Investment, collaboration, piloting and licensing intentions are secondary behavioural outcomes. This follows framing research showing that linguistic and cognitive frames can shape innovation adoption, investor response and the interpretation of emerging technologies (Pan et al., 2020; Raffaelli et al., 2019; Spieth et al., 2021; Snihur et al., 2022; Taeuscher &amp; Rothe, 2024).</p>
+<p><strong>Experimental implementation and analysis.</strong> Framing conditions will be derived from patterns observed in WP3–WP4 and will vary theoretically specified features of the opportunity account while preserving the underlying technical facts and evidence base. The study will use random assignment, pre-specified primary outcomes and manipulation checks to assess whether participants perceive the intended differences between conditions. The analysis will account for stakeholder-group differences and, where participants evaluate multiple vignettes, the dependence of observations within participants and scenarios. The pilot will assess recruitment feasibility, comprehension, measure performance and treatment differentiation before the confirmatory design is finalised (Aguinis &amp; Bradley, 2014; Baguley et al., 2022).</p>
+<ul>
+<li>Build treatments directly from empirically observed WP3–WP4 framing patterns.</li>
+<li>Randomly assign alternative representations of the same technical opportunity while holding technical facts, maturity, evidence base and core functionality constant.</li>
+<li>Measure value, legitimacy, technical risk, uncertainty, evidence sufficiency and willingness to collaborate, invest or pilot as appropriate; treat application/industry context as a theoretically motivated moderator; it will not be treated as a second treatment unless the design explicitly tests an interaction.</li>
+<li>Pre-register hypotheses, exclusions and primary outcomes before confirmatory analysis.</li>
+</ul>
+<div class="wp-meta">
+<div><strong>Planned sample</strong><span>A provisional target of 150–200 participants across 2–3 stakeholder groups; final sample set by a priori power analysis. Group comparisons will be exploratory unless adequately powered.</span></div>
+<div><strong>Identification</strong><span>Isolates representation effects under controlled conditions; does not claim framing is the sole determinant of real-world transfer.</span></div>
+</div>
+</article>
+<article class="wp-card featured">
+<div class="wp-kicker">WP6 · INTEGRATION &amp; DIAGNOSTIC</div>
+<h3>Link reconfiguration to transfer trajectories and build the diagnostic</h3>
+<p><strong>Core question:</strong> Under what conditions is adaptation associated with subsequent transfer outcomes—funding, collaboration, licensing, piloting or spin-off development—without erasing decision-relevant uncertainty?</p>
+<p>Integrate trajectory events, qualitative mechanisms, computational measures and experimental estimates into a common evidence matrix. Interpretation will distinguish multiple routes to knowledge transfer and commercialisation, without assuming that patenting, licensing or spin-off creation alone captures the full value of university–industry engagement (Grimaldi et al., 2011; Howells, 2006).</p>
+<p><strong>Temporal and outcome interpretation.</strong> The analysis will distinguish the timing of framing changes from the timing of subsequent funding, collaboration, licensing, piloting and other transfer events. Where the number and quality of observations permit, trajectories will be compared by outcome type and stage, while accounting for differences in technology maturity, application context and evidence availability. Because successful transfer can take multiple forms and outcomes may be incompletely observed, the diagnostic will record both realised outcomes and unresolved or censored trajectories. Associations between framing adaptation and subsequent transfer will be interpreted in light of alternative explanations, not as evidence of a standalone causal effect.</p>
+<ul>
+<li>Align frame-change dates with subsequent funding, investment, collaboration, licensing, pilots, spin-off development and abandonment where observable, treating these as longitudinal transfer outcomes, not direct experimental dependent variables.</li>
+<li>Use temporal ordering to distinguish prior representations from later outcomes.</li>
+<li>Compare trajectories with similar technologies or stages where feasible, including cases where translation occurred without a corresponding transfer outcome.</li>
+<li>Produce a diagnostic recording audience, opportunity claim, evidence supplied, unresolved uncertainty, frame change, evaluation response and subsequent outcome.</li>
+</ul>
+<div class="wp-meta">
+<div><strong>Output</strong><span>Technology Opportunity Translation Diagnostic, papers, anonymised coding framework, stakeholder/policy brief and reusable dataset structure.</span></div>
+<div><strong>Final year</strong><span>Replication checks, stakeholder validation, dissemination and data/code documentation.</span></div>
+</div>
+</article>
+</div>
+<div class="wp-logic">
+<strong>Work-package logic</strong>
+<p>WP1 establishes the identifiers, technology-family classification and three-industry/application sampling frame. WP2 turns those identifiers into longitudinal event histories. WP3 explains how evaluation interactions produce revisions. WP4 tests whether framing, value and uncertainty patterns vary systematically within trajectories, across technology families and across application contexts. WP5 tests the causal effect of opportunity framing on stakeholder evaluation under controlled conditions. WP6 reconnects those experimental effects to longitudinal transfer outcomes without claiming that framing alone causes commercialisation (Haessler et al., 2023; Reynolds et al., 2025; Bunduchi &amp; Candi, 2026).</p>
+</div>
+</section>
+<section class="section paper" id="data-architecture">
+<div class="section-head">
+<p class="eyebrow">05 · DATA &amp; EVIDENCE ARCHITECTURE</p>
+<h2>A common spine keeps every layer traceable.</h2>
+<p class="muted">The entity, technology, interaction, text, outcome and provenance layers are not separate datasets. They are linked views of the same opportunity trajectory, joined through persistent identifiers and dated events. This longitudinal, multi-source design reflects the need to study technology transfer as an evolving process involving multiple actors and organisational boundaries, not as a single transfer event (Dolmans et al., 2022; Haessler et al., 2023).</p>
+</div>
+<div class="architecture">
+<div><b>ENTITY LAYER</b><p>Researchers · universities · TTOs · startups · investors · firms · funders · technologies</p></div>
+<div><b>TECHNOLOGY LAYER</b><p>Patents · patent families · CPC/IPC classes · publications · projects · prototypes · licensing/IP events</p></div>
+<div><b>INTERACTION LAYER</b><p>Evaluation encounters · pitches · meetings · grant decisions · negotiations · pilots · evidence requests</p></div>
+<div><b>TEXT LAYER</b><p>Time-stamped documents · claims · problem/value/evidence/uncertainty codes · embeddings · frame measures</p></div>
+<div><b>OUTCOME LAYER</b><p>Funding · investment · collaboration · licensing · pilots · spin-off development · abandonment</p></div>
+</div>
+<div class="wp-output">
+<strong>PROVENANCE LAYER — applies across all five layers.</strong>
+    Source ID · access date · event date · document type · matching confidence · coding version. Every high-value entity link and coded event retains enough provenance to be audited, revised and traced back to its source.
+  </div>
+<div class="concept-card" style="margin-top:22px">
+<div class="concept-flow">
+<div><span>WP1</span><b>Opportunity register</b><small>Persistent IDs + provenance + candidate universe</small></div>
+<i>to</i><div><span>WP2</span><b>Event spine</b><small>Evaluation episodes + longitudinal corpus</small></div>
+<i>to</i><div><span>WP3</span><b>Mechanisms</b><small>Interactional explanation of revisions</small></div>
+<i>to</i><div><span>WP4</span><b>Measures</b><small>Systematic framing/value/uncertainty patterns</small></div>
+<i>to</i><div><span>WP5</span><b>Experimental test</b><small>Controlled representation effects</small></div>
+<i>to</i><div><span>WP6</span><b>Diagnostic</b><small>Integrated longitudinal interpretation</small></div>
+</div>
+</div>
+</section>
+<section class="section dark">
+<div class="section-head">
+<p class="eyebrow">RESEARCH MODEL · IV / DV / CONTEXT</p>
+<h2>Framing is the intervention; stakeholder evaluation is the immediate outcome; transfer is the longitudinal outcome.</h2>
+<p class="muted">The project distinguishes the representation of an opportunity from what stakeholders subsequently evaluate and from what happens to the opportunity over time. This prevents the empirical design from treating “commercialisation” as a single short-term dependent variable. The experimental component follows best-practice guidance for vignette studies (Aguinis &amp; Bradley, 2014) and draws on evidence that technology maturity, market-segment clarity and regulatory hurdles influence entrepreneurs’ technology-licensing evaluations (Brown et al., 2022).</p>
+</div>
+<div class="research-model">
+<div class="model-grid">
+<div class="model-cell"><b>Independent variable</b><small><strong>Opportunity framing</strong><br/>Problem, value, evidence, uncertainty, novelty/familiarity and application framing.</small></div>
+<div class="model-cell"><b>Mechanism</b><small><strong>Stakeholder sensemaking / evaluation</strong><br/>How actors interpret value, legitimacy, evidence sufficiency, risk and uncertainty.</small></div>
+<div class="model-cell"><b>Primary DV</b><small><strong>Stakeholder evaluation and response</strong><br/>Perceived value, legitimacy, risk, uncertainty, evidence sufficiency and willingness to invest, collaborate or pilot.</small></div>
+<div class="model-cell"><b>Longitudinal DV</b><small><strong>Transfer trajectory</strong><br/>Funding, investment, collaboration, licensing, pilots, spin-off development, redirection or abandonment.</small></div>
+</div>
+<div class="industry-focus"><strong>Industry/application context as moderator:</strong> the study focuses on three priority contexts—<strong>healthcare &amp; medtech</strong>, <strong>digital/enterprise technologies</strong>, and <strong>advanced industrial/manufacturing systems</strong>. Technology family and technology maturity are additional contextual dimensions. The expectation is not that framing has one universal effect, but that its consequences depend on the evidentiary, institutional and market conditions in which an opportunity is evaluated (Pan et al., 2020; Bojovic, 2022; Raffaelli et al., 2019; Taeuscher &amp; Rothe, 2024).</div>
+<div class="hypothesis" style="margin-top:18px">
+<span>CORE TESTABLE RELATION</span>
+<p>Holding technical content, maturity and evidence constant, different opportunity frames should change stakeholder evaluation. The magnitude and direction of this effect may vary by application context and technology characteristics; longitudinally, frame adaptation is expected to be associated with subsequent transfer trajectories when it responds to legitimate evidence and stakeholder requirements without merely suppressing uncertainty.</p>
+</div>
+</div>
+</section>
+<section class="section accent" id="pilot">
+<div class="section-head">
+<p class="eyebrow">06 · PILOT STUDY</p>
+<h2>Specific enough to test. Open enough to discover.</h2>
+<p class="muted">The numbers below are <strong>planned pilot targets</strong>, not claimed results.</p>
+</div>
+<div class="pilot-table">
+<div class="row head"><span>Component</span><span>Planned data</span><span>Primary measure</span></div>
+<div class="row"><span>Trajectory corpus</span><span>A feasible core sample of trajectories anchored in VUB/Belgian-linked evidence, selected for variation and traceable evaluation encounters</span><span>technology-opportunity trajectories + evaluation events</span></div>
+<div class="row"><span>Stakeholder interviews</span><span>35–50 researchers, entrepreneurs, TTO professionals, investors and industry partners</span><span>evaluation episodes + changes in value, evidence and uncertainty</span></div>
+<div class="row"><span>Interaction evidence</span><span>accessible pitch, meeting and evaluation artefacts</span><span>question / objection to evidence requirement to opportunity-account revision</span></div>
+<div class="row"><span>Vignette experiment</span><span>Target 150–200 participants, subject to a priori power analysis and recruitment feasibility</span><span>IV: opportunity framing; primary DV: stakeholder evaluation; secondary DV: willingness to engage</span></div>
+<div class="row"><span>Outcome linkage</span><span>funding, collaboration, licensing, pilots, spin-off development, redirection or abandonment</span><span>longitudinal transfer outcome following trajectory reconfiguration</span></div>
+</div>
+<div class="hypothesis">
+<span>TESTABLE PROPOSITION</span>
+<p>Frame adaptation should matter most at boundary-crossing moments. The key empirical question is whether adaptation improves access to resources without reducing the visibility of technical uncertainty.</p>
+</div>
+</section>
+<section class="section">
+<div class="section-head">
+<p class="eyebrow">07 · CONCEPTUAL FRAMEWORK</p>
+<h2>Technology-opportunity trajectories: meaning, value and uncertainty in motion.</h2>
+<p class="muted">The project treats opportunity value as something that can be reinterpreted through successive evaluation encounters, not as a fixed property of a technology. This is consistent with research showing that entrepreneurial and commercialisation work involves framing, narrative negotiation, boundary spanning, changing regimes of value and intermediary roles across academic and industrial settings (Pan et al., 2020; van Werven et al., 2019; Mäkinen &amp; Sapir, 2023; Dolmans et al., 2022; O’Kane et al., 2015).</p>
+</div>
+<div class="concept-card">
+<div class="concept-flow">
+<div><span>01</span><b>Technology origin</b><small>Research, patent, proof-of-concept</small></div>
+<i>to</i><div><span>02</span><b>Evaluation encounter</b><small>A new community assesses the opportunity</small></div>
+<i>to</i><div><span>03</span><b>Interpretation &amp; questioning</b><small>Claims, objections and evidence requirements</small></div>
+<i>to</i><div><span>04</span><b>Frame adaptation</b><small>Meaning, value and uncertainty are reconfigured</small></div>
+<i>to</i><div><span>05</span><b>Resource / relationship response</b><small>Funding, collaboration, licensing, pilots</small></div>
+<i>to</i><div><span>06</span><b>New evidence</b><small>Further evaluation and possible reframing</small></div>
+</div>
+<div class="three-dimensions">
+<div><b>MEANING</b><p>What is the technology understood to be?</p></div>
+<div><b>VALUE</b><p>Why is it considered worth supporting or adopting?</p></div>
+<div><b>UNCERTAINTY</b><p>What remains unknown, unvalidated or risky?</p></div>
+</div>
+</div>
+</section>
+<section class="section dark" id="impact">
+<div class="section-head">
+<p class="eyebrow">08 · IMPACT</p>
+<h2>From longitudinal evidence to a practical translation diagnostic.</h2>
+</div>
+<div class="impact-grid">
+<div><b>Technology Opportunity Translation Diagnostic</b><p>Identify how an opportunity is understood by different stakeholders, which evidence supports its value claims, which uncertainties remain unresolved and where its representation changes.</p></div>
+<div><b>For VUB TechTransfer</b><p>A longitudinal evidence base for understanding how opportunities are assessed, promoted, challenged and de-risked across transfer processes.</p></div>
+<div><b>For researchers &amp; entrepreneurs</b><p>A clearer account of how opportunity descriptions change as they move between communities of evaluation, without treating adaptation as equivalent to evidence.</p></div>
+<div><b>For industry, investors &amp; policy</b><p>Evidence on how evaluation contexts, relationships and uncertainty shape technology-transfer trajectories, with practical prompts for transparent assessment when evidence is incomplete.</p></div>
+</div>
+<div class="deliverables">
+<span>Open-access papers</span><span>Stakeholder-tested diagnostic</span><span>Policy brief</span><span>Anonymised coding framework where permitted</span><span>Documented data architecture</span>
+</div>
+<div class="method-intro"><strong>Policy focus:</strong> The policy brief will address how universities, public funders and innovation-support organisations can assess emerging technologies when evidence is incomplete, distinguish demonstrated capability from plausible future value, and define proportionate next-step evidence requirements. Recommendations will be grounded in the findings and co-developed with relevant stakeholders, not assumed in advance.</div>
+</section>
+<section class="section" id="fit">
+<div class="section-head">
+<p class="eyebrow">09 · WHY INTERACT / WHY VUB</p>
+<h2>The project is designed around InterACT’s interdisciplinary and intersectoral architecture.</h2>
+</div>
+<div class="fit-grid">
+<div><h3>Excellence</h3><p>Connects entrepreneurship and technology-transfer research with organisational sensemaking, qualitative process analysis and experimental methods.</p></div>
+<div><h3>Impact</h3><p>Links opportunity evaluation to responsible knowledge valorisation and a policy brief for institutions that assess emerging technologies under uncertainty. The diagnostic recognises multiple pathways to knowledge transfer and does not treat patenting, licensing or spin-off creation as exhaustive indicators of success (Grimaldi et al., 2011; Howells, 2006).</p></div>
+<div><h3>Implementation</h3><p>Build a traceable case base, explain evaluation encounters, test selected framing effects and integrate findings. The final scope will be matched to verified data access and recruitment feasibility.</p></div>
+<div><h3>Co-creation</h3><p>Co-creation has three stages: the Belgian non-academic partner helps define a practical evaluation challenge; stakeholders review emerging interpretations during the study; and partner representatives test the diagnostic against practical cases. The partner’s role is advisory and collaborative, while research independence and confidentiality are maintained.</p></div>
+</div>
+<div class="mentor">
+<p class="eyebrow">INTERSECTORAL AND INTERNATIONAL COLLABORATION</p>
+<h3>Co-create the research, not only the final tool</h3>
+<p><strong>Belgian non-academic secondment, Year 1:</strong> a 3–5 month placement with a Belgian non-academic organisation working in technology development, innovation support, industry collaboration or evidence-informed policy. A designated mentor would help define a practical evaluation challenge, provide tasks relevant to the host organisation and discuss emerging findings. The final host will be selected based on fit and a formal agreement; access to confidential records is not assumed.</p>
+<p><strong>International academic secondment, Year 2:</strong> a 3–5 month placement with an international group whose expertise complements the project in entrepreneurship, innovation evaluation, organisational sensemaking or technology transfer, preferably through EUTOPIA. This placement will strengthen the theoretical framework and support comparative interpretation.</p>
+<p><strong>Co-creation cycle:</strong> identify the practical challenge with stakeholders; discuss interim patterns and test interpretations; then refine the diagnostic and policy brief with feedback from relevant users. The project will distinguish stakeholder feedback from empirical findings and report disagreement transparently.</p>
+<p><strong>Partner commitment:</strong> the InterACT call provides an official non-academic organisation letter-of-commitment template. It is optional but highly recommended. The organisation should understand the planned secondment, mentoring role, expected interactions and practical value before signing.</p>
+<div class="mentor-links"><a href="https://interact-programme.be/call" rel="noopener" target="_blank">Official call and letter template</a><a href="https://interact-programme.be/non-academic-organizations" rel="noopener" target="_blank">InterACT non-academic host list</a></div>
+</div>
+<div class="mentor">
+<p class="eyebrow">RESEARCH ENVIRONMENT</p>
+<h3>VUB Business Technology &amp; Operations</h3>
+<p>The project sits closely with research on technology transfer, academic entrepreneurship, collaborative R&amp;D and innovation ecosystems. The wider literature includes work on technology-transfer professionals as boundary brokers, TTO legitimacy, academic-entrepreneurship ecosystems, university startups and the changing institutional role of technology-transfer offices (O’Kane et al., 2015; Hayter et al., 2018; Sapir, 2021; Chen et al., 2025; Giunti &amp; Duberley, 2026). Crispeels et al. (2026) provides a particularly relevant VUB-based contribution, but it is one strand within this broader literature.</p>
+<div class="mentor-links">
+<a href="https://researchportal.vub.be/en/persons/kevin-de-moortel/" rel="noopener" target="_blank">Kevin De Moortel </a>
+<a href="https://buto.research.vub.be/thomas-crispeels" rel="noopener" target="_blank">Thomas Crispeels </a>
+</div>
+</div>
+</section>
+<section class="section literature">
+<div class="section-head">
+<p class="eyebrow">10 · LITERATURE</p>
+<h2>Literature anchors</h2>
+<p class="muted">References</p>
+</div>
+<div class="references"><p>Abid, N., Cunningham, J. A., &amp; Perea-Vicente, J. L. (2025). A thematic review of 45 years of <em>The Journal of Technology Transfer</em>. <em>The Journal of Technology Transfer, 50</em>(4), 1739–1784.</p>
+<p>Abreu, M., &amp; Grinevich, V. (2024). The entrepreneurial university: Strategies, processes, and competing goals. <em>The Journal of Technology Transfer, 49</em>(6), 1991–2034.</p>
+<p>Aguinis, H., &amp; Bradley, K. J. (2014). Best practice recommendations for designing and implementing experimental vignette methodology studies. <em>Organizational Research Methods, 17</em>(4), 351–371.</p>
+<p>Amry, D. K., Ahmad, A. J., &amp; Lu, D. (2021). The new inclusive role of university technology transfer: Setting an agenda for further research. <em>International Journal of Innovation Studies, 5</em>(1), 9–22.</p>
+<p>Baguley, T., Dunham, G., &amp; Steer, O. (2022). Statistical modelling of vignette data in psychology. <em>British Journal of Psychology, 113</em>(4), 1143–1163.</p>
+<p>Beach, D. (2020). Process tracing methods. In <em>Handbuch Methoden der Politikwissenschaft</em> (pp. 699–719). Springer Fachmedien Wiesbaden.</p>
+<p>Benford, R. D., &amp; Snow, D. A. (2000). Framing processes and social movements: An overview and assessment. <em>Annual Review of Sociology, 26</em>, 611–639.</p>
+<p>Bojovic, N. (2022). Strategic framing of enabling technologies: Insights from firms digitizing smell and taste. <em>Research Policy, 51</em>(3), Article 104469.</p>
+<p>Brown, A. R., Wood, M. S., &amp; Scheaf, D. J. (2022). Discovery sells, but who’s buying? An empirical investigation of entrepreneurs’ technology license decisions. <em>Journal of Business Research, 144</em>, 403–415.</p>
+<p>Caccamo, M., Pittino, D., &amp; Tell, F. (2023). Boundary objects, knowledge integration, and innovation management: A systematic review of the literature. <em>Technovation, 122</em>, Article 102645.</p>
+<p>Chen, Z., Little, V. J., &amp; Thuan, N. H. (2025). The evolving role of technology transfer offices in the entrepreneurial university: Go-betweens or playmakers? <em>The Journal of Technology Transfer, 50</em>(3), 1060–1079.</p>
+<p>Clarke, J. S., &amp; Llewellyn, N. (2026). Stories under scrutiny: How entrepreneurs and investors negotiate entrepreneurial narratives in interactional exchanges during investment pitches. <em>Journal of Business Venturing, 41</em>(4), Article 106604.</p>
+<p>Crispeels, T., De Moortel, K., Gruber, M., &amp; Guerrero, M. (2026). Who, how, and where: Navigating towards a micro-foundations perspective on university technology transfer ecosystems. <em>The Journal of Technology Transfer</em>, 1–11.</p>
+<p>Cunningham, J. A., Menter, M., &amp; Young, C. (2017). A review of qualitative case methods trends and themes used in technology transfer research. <em>The Journal of Technology Transfer, 42</em>(4), 923–956.</p>
+<p>Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. In <em>Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)</em> (pp. 4171–4186). Association for Computational Linguistics.</p>
+<p>Dolmans, S. A., Walrave, B., Read, S., &amp; van Stijn, N. (2022). Knowledge transfer to industry: How academic researchers learn to become boundary spanners during academic engagement. <em>The Journal of Technology Transfer, 47</em>(5), 1422–1450.</p>
+<p>European Commission. (2023). <em>Code of practice on the management of intellectual assets for knowledge valorisation</em>. Directorate-General for Research and Innovation. https://research-and-innovation.ec.europa.eu/research-area/industrial-research-and-innovation/eu-valorisation-policy/knowledge-valorisation-platform/guiding-principles-knowledge-valorisation-and-implementing-codes-practice/code-practice-management-intellectual-assets-knowledge-valorisation_en</p>
+<p>European Commission. (2026). <em>CORDIS: EU research and innovation projects and results</em>. Publications Office of the European Union. https://cordis.europa.eu/</p>
+<p>European Patent Office. (2026). <em>PATSTAT: Worldwide patent statistical database</em>. https://www.epo.org/en/about-us/observatory-patents-and-technology/observatory-tools/patstat</p>
+<p>Giunti, G., &amp; Duberley, J. (2026). Academic entrepreneurship: Uncovering the role of formal and informal logics in the academic entrepreneurial space. <em>The Journal of Technology Transfer</em>, 1–59.</p>
+<p>Grimaldi, R., Kenney, M., Siegel, D. S., &amp; Wright, M. (2011). 30 years after Bayh–Dole: Reassessing academic entrepreneurship. <em>Research Policy, 40</em>(8), 1045–1057.</p>
+<p>Grimmer, J., &amp; Stewart, B. M. (2013). Text as data: The promise and pitfalls of automatic content analysis methods for political texts. <em>Political Analysis, 21</em>(3), 267–297.</p>
+<p>Haessler, P., Giones, F., &amp; Brem, A. (2023). The who and how of commercializing emerging technologies: A technology-focused review. <em>Technovation, 121</em>, Article 102637.</p>
+<p>Hayter, C. S., Link, A. N., &amp; Schaffer, M. (2023). Identifying the emergence of academic entrepreneurship within the technology transfer literature. <em>The Journal of Technology Transfer, 48</em>(5), 1800–1812.</p>
+<p>Hoppmann, J., Anadon, L. D., &amp; Narayanamurti, V. (2020). Why matter matters: How technology characteristics shape the strategic framing of technologies. <em>Research Policy, 49</em>(1), Article 103882.</p>
+<p>Howells, J. (2006). Intermediation and the role of intermediaries in innovation. <em>Research Policy, 35</em>(5), 715–728.</p>
+<p>Howells, J., &amp; Thomas, E. (2022). Innovation search: The role of innovation intermediaries in the search process. <em>R&amp;D Management, 52</em>(5), 992–1008.</p>
+<p>Mäkinen, E. I., &amp; Sapir, A. (2023). Making sense of science, university, and industry: Sensemaking narratives of Finnish and Israeli scientists. <em>Minerva, 61</em>(2), 175–198.</p>
+<p>McAdam, R., McAdam, M., &amp; Brown, V. (2009). Proof of concept processes in UK university technology transfer: An absorptive capacity perspective. <em>R&amp;D Management, 39</em>(2), 192–210.</p>
+<p>Miranda, F. J., Chamorro, A., &amp; Rubio, S. (2018). Re-thinking university spin-off: A critical literature review and a research agenda. <em>The Journal of Technology Transfer, 43</em>(4), 1007–1038.</p>
+<p>O’Connor, C., &amp; Joffe, H. (2020). Intercoder reliability in qualitative research: Debates and practical guidelines. <em>International Journal of Qualitative Methods, 19</em>, Article 1609406919899220.</p>
+<p>OECD. (2025). <em>OECD science, technology and innovation outlook 2025: Driving change in a shifting landscape</em>. OECD Publishing.</p>
+<p>O’Kane, C., Mangematin, V., Geoghegan, W., &amp; Fitzgerald, C. (2015). University technology transfer offices: The search for identity to build legitimacy. <em>Research Policy, 44</em>(2), 421–437.</p>
+<p>Oo, P. P., Jiang, L., Sahaym, A., Parhankangas, A., &amp; Chan, R. (2023). Actions in words: How entrepreneurs use diversified and changing speech acts to achieve funding success. <em>Journal of Business Venturing, 38</em>(2), Article 106289.</p>
+<p>OpenAlex. (2026). <em>OpenAlex: The open catalog to the global research system</em>. https://openalex.org/</p>
+<p>Pan, L., Li, X., Chen, J., &amp; Chen, T. (2020). Sounds novel or familiar? Entrepreneurs’ framing strategy in the venture capital market. <em>Journal of Business Venturing, 35</em>(2), Article 105930.</p>
+<p>Pohlmann, J., Tiberius, V., &amp; Weyland, M. (2026). Designing effective university-industry cooperation through university spin-offs: A systematic literature review. <em>Industry and Higher Education</em>.</p>
+<p>Purtell, C. T., Rutherford, M. W., Phillips, D., Pollack, J. M., &amp; Edwards, B. D. (2024). Pitch envisaging: The role of narrative transportation in pitching success. <em>Journal of Business Venturing Insights, 22</em>, Article e00501.</p>
+<p>Raffaelli, R., Glynn, M. A., &amp; Tushman, M. (2019). Frame flexibility: The role of cognitive and emotional framing in innovation adoption by incumbent firms. <em>Strategic Management Journal, 40</em>(7), 1013–1039.</p>
+<p>Reimers, N., &amp; Gurevych, I. (2019). Sentence-BERT: Sentence embeddings using Siamese BERT-networks. In <em>Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)</em> (pp. 3982–3992). Association for Computational Linguistics.</p>
+<p>Reynolds, O., O’Dochartaigh, A., Secchi, E., Marshall, D., &amp; Prothero, A. (2025). Framing innovation success, failure, and transformation: A systematic literature review. <em>Journal of Product Innovation Management, 42</em>(1), 194–219.</p>
+<p>Roberts, M. E., Stewart, B. M., &amp; Tingley, D. (2019). STM: An R package for structural topic models. <em>Journal of Statistical Software, 91</em>, 1–40.</p>
+<p>Sapir, A. (2021). Brokering knowledge, monitoring compliance: Technology transfer professionals on the boundary between academy and industry. <em>Journal of Higher Education Policy and Management, 43</em>(3), 248–263.</p>
+<p>Siegel, D. S., Waldman, D., &amp; Link, A. (2003). Assessing the impact of organizational practices on the relative productivity of university technology transfer offices: An exploratory study. <em>Research Policy, 32</em>(1), 27–48.</p>
+<p>Snihur, Y., Thomas, L. D., Garud, R., &amp; Phillips, N. (2022). Entrepreneurial framing: A literature review and future research directions. <em>Entrepreneurship Theory and Practice, 46</em>(3), 578–606.</p>
+<p>Spieth, P., Röth, T., Clauss, T., &amp; Klos, C. (2021). Technological frames in the digital age: Theory, measurement instrument, and future research areas. <em>Journal of Management Studies, 58</em>(7), 1962–1993.</p>
+<p>Taeuscher, K., &amp; Rothe, H. (2024). Entrepreneurial framing: How category dynamics shape the effectiveness of linguistic frames. <em>Strategic Management Journal, 45</em>(2), 362–395.</p>
+<p>van Werven, R., Bouwmeester, O., &amp; Cornelissen, J. P. (2019). Pitching a business idea to investors: How new venture founders use micro-level rhetoric to achieve narrative plausibility and resonance. <em>International Small Business Journal, 37</em>(3), 193–214.</p>
+<p>VUB TechTransfer. (2026a). <em>For businesses: Building relations with industry and society</em>. Vrije Universiteit Brussel. https://techtransfer.research.vub.be/</p>
+<p>VUB TechTransfer. (2026b). <em>Spin-off guidelines</em>. Vrije Universiteit Brussel. https://techtransfer.research.vub.be/</p>
+<p>Wright, M., Birley, S., &amp; Mosey, S. (2004). Entrepreneurship and university technology transfer. <em>The Journal of Technology Transfer, 29</em>(3), 235–246.</p></div>
+<p class="reference-note"></p>
+</section>
+<footer>
+<div><strong>MEANING IN MOTION</strong><br/>InterACT Postdoctoral Fellowship · VUB</div>
+<div><a href="https://interact-programme.be/call" rel="noopener" target="_blank">Official InterACT call </a><br/><span>Proposal concept site · revised September 2026</span></div>
+</footer>
+<script>
+document.querySelectorAll(".method-button").forEach(button => {
+  button.addEventListener("click", () => {
+    const card = button.closest(".method-step");
+    const isOpen = card.classList.toggle("open");
+    button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+});
+</script>
+</body>
+</html>
